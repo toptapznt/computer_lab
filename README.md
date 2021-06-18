@@ -28,7 +28,7 @@
 
 # **Getting Start**
 
-ทำการ clone project จาก Repository ด้วยคำสั่ง **git clone** ในทุกๆ เครื่อง ทั้ง Master node และ Worker node
+ขั้นตอนเเรกทำการ clone project จาก Repository ด้วยคำสั่ง **git clone** ในทุกๆ เครื่อง ทั้ง Master node และ Worker node
 
 การ Set up แบ่งเป็น 2 ส่วนคือ 
 * Setup Kubernetes Cluster 
@@ -38,12 +38,13 @@
 ## **Setup Kubernetes Cluster**
 
 1. เข้าไปที่ Directory script
-2. ใน XMPP Server Node ให้ run script ที่ชื่อว่า "xmppserver-setup.sh"
-
-3. เข้าไปตั้งค่า XMPP Server ที่ http://\<XMPP-Server-IPaddress>:9090
+2. ใน XMPP Server Node ให้ run script ที่ชื่อว่า "xmppserver-setup.sh" ด้วยคำสั่ง ```./xmppserver-setup.sh```
+> หากไม่สามารถ run script ได้ ให้ใช้คำสั่ง chmod +x xmppserver-setup.sh
+4. เข้าไปตั้งค่า XMPP Server ที่ http://\<XMPP-Server-IPaddress>:9090
 โดยวิธีการตั้งค่าอยู่ในนี้ [Config Openfire](https://edgevpn.io/openfiredocker/) และทำการสร้าง User สำหรับ Master Node และ Worker Node ตามจำนวนที่ต้องการและ สร้าง Group ซึ่งตั้งค่า **Contact List** เป็น **All Users** โดยใน Group มีสมาชิกเพียง 1 Node คือ Master Node
 
-4. ในทุกๆ Node (ทั้ง Master และ Worker) ลง Software EdgeVPN.io โดยใช้ Script ที่ชื่อว่า "setupedgevpn.io.sh" โดยใช้ parameter 4 ตัวคือ 
+4. ในทุกๆ Node (ทั้ง Master และ Worker) ลง Software EdgeVPN.io โดยใช้ Script ที่ชื่อว่า "setupedgevpn.io.sh" ด้วยคำสั่ง ```./setupedgevpn.io.sh``` โดยใช้ parameter 4 ตัวคือ 
+> หากไม่สามารถ run script ได้ ให้ใช้คำสั่ง chmod +x setupedgevpn.io.sh
     * Host Address ของ XMPP Server 
     * E-mail ของ User ใน XMPP Server
     * Password ของ User ใน XMPP Server
@@ -53,7 +54,8 @@
    
      > ตัวอย่างเช่น ./setupedgevpn.io.sh 59.123.5.67 master@gmail.com master 10.10.10.10
     
-5. ใน Master Node run Script ที่ชื่อว่า "shellformasternode.sh" และเข้าไปแก้ไขไฟล์
+5. ใน Master Node run Script ที่ชื่อว่า "shellformasternode.sh" ด้วยคำสั่ง ```./shellformasternode.sh``` และเข้าไปแก้ไขไฟล์
+> หากไม่สามารถ run script ได้ ให้ใช้คำสั่ง chmod +x shellformasternode.sh
     ```bash
     /etc/systemd/system/kubelet.service.d/10-kubeadm.conf 
     ```
@@ -83,7 +85,8 @@
     sudo kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
     ```
 
-6. ในส่วนของ Worker Node run Script ที่ชื่อว่า "setupk8s.sh" โดยใช้ parameter 1 ตัวคือ 
+6. ในส่วนของ Worker Node run Script ที่ชื่อว่า "setupk8s.sh" ด้วยคำสั่ง ```./setupk8s.sh``` โดยใช้ parameter 1 ตัวคือ 
+> หากไม่สามารถ run script ได้ ให้ใช้คำสั่ง chmod +x setupk8s.sh
     * HostName ที่ต้องการตั้งให้ Worker Node 
 
     และเข้าไปแก้ไขไฟล์
@@ -99,7 +102,10 @@
 
     ```bash   
     sudo kubeadm join 10.10.10.10:6443 --token yxigqc.vwmi19vbiedklgp7 --discovery-token-ca-cert-hash sha256:590b6698140222b480549e0c7f949ecb4db96c961f388a6377765efe8fde35f1
-    ```   
+    ```
+   
+   <br>
+   
 สามารถเช็คสถานะของเครื่องภายใน Cluster โดยใน Master Node ใช้คำสั่ง 
 ```bash
 kubectl get node
@@ -142,4 +148,5 @@ kubeadm token create --print-join-command
     ``` 
     และสร้าง Directory ที่ชื่อว่า **yaml** และ **servicelist** ในโฟลเดอร์ server
 
-3. ใช้คำสั่ง ```npm start``` ในฝั่ง Client และ Server  
+3. ใช้คำสั่ง ```npm start``` ในฝั่ง Client และ Server
+4. เข้าไปที่ http://\<Master-Node-IP>:3000
