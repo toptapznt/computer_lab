@@ -167,7 +167,7 @@ kubeadm token create --print-join-command
     name     = admin
     role     = admin
     ```
-    โดย password ได้มากจากการ encode text "12345678"
+    โดย password ได้มาจากการ encode text "12345678"
     
     <br>
     
