@@ -1,6 +1,8 @@
 ### COMPUTER LAB AS A SERVICE USING CONTAINER AND CONTAINER ORCHESTRATION TECHNOLOGY 💻
 <br>
 
+## Directory Tree
+
 ```bash
 .
 ├─ 📁 demo
@@ -19,6 +21,8 @@
 └─ README.md
 ```
 
+<br>
+---
 <br>
 # **About The Project**
 
