@@ -1,7 +1,11 @@
-## COMPUTER LAB AS A SERVICE USING CONTAINER AND CONTAINER ORCHESTRATION TECHNOLOGY 💻
+### COMPUTER LAB AS A SERVICE USING CONTAINER AND CONTAINER ORCHESTRATION TECHNOLOGY
+### การให้บริการห้องปฏิบัติการคอมพิวเตอร์ด้วยเทคโนโลยีคอนเทนเนอร์เเละการจัดการคอนเทนเนอร์
+
+---
+
 <br>
 
-### Directory Tree
+### Directory Tree (63-2_CS402_14_ppr-r2)
 
 ```bash
 .
@@ -30,7 +34,11 @@
 
 # **Getting Start**
 
+<br>
+
 ขั้นตอนเเรกทำการ clone project จาก Repository ด้วยคำสั่ง **git clone** ในทุกๆ เครื่อง ทั้ง Master node และ Worker node
+
+<br>
 
 การ Set up แบ่งเป็น 2 ส่วนคือ 
 * Setup Kubernetes Cluster 
@@ -119,6 +127,8 @@
    
    <br>
    
+(Optional)
+   
 สามารถเช็คสถานะของเครื่องภายใน Cluster โดยใน Master Node ใช้คำสั่ง 
 ```bash
 kubectl get node
@@ -152,6 +162,8 @@ kubeadm token create --print-join-command
     role     = admin
     ```
     โดย password ได้มากจากการ encode text "12345678"
+    
+    <br>
     
 2.  เข้าไปใช้คำสั่ง ```npm install``` ในโฟลเดอร์ Client และ Server และเข้าไปแก้ไขข้อมูลใน
     ```client/src/Config/IpConfig.js``` 
