@@ -25,7 +25,6 @@
 │   ├─ 📁 script
 │   └─ 📁 server
 ├─ 📁 etc
-│   ├─ 
 │   └─ 63-2_CS402_14_ppr-r2_demo_workflow.mp4
 └─ README.md
 ```
