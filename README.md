@@ -46,7 +46,7 @@
 4. เข้าไปตั้งค่า XMPP Server ที่ http://\<XMPP-Server-IPaddress>:9090
 โดยวิธีการตั้งค่าอยู่ในนี้ [Config Openfire](https://edgevpn.io/openfiredocker/) และทำการสร้าง User สำหรับ Master Node และ Worker Node ตามจำนวนที่ต้องการและ สร้าง Group ซึ่งตั้งค่า **Contact List** เป็น **All Users** โดยใน Group มีสมาชิกเพียง 1 Node คือ Master Node
 
-4. ในทุกๆ Node (ทั้ง Master และ Worker) ลง Software EdgeVPN.io โดยใช้ Script ที่ชื่อว่า "setupedgevpn.io.sh" ด้วยคำสั่ง ```./setupedgevpn.io.sh``` โดยใช้ parameter 4 ตัวคือ 
+4. ในทุกๆ Node (ทั้ง Master และ Worker) ลง Software EdgeVPN.io โดย run Script ที่ชื่อว่า "setupedgevpn.io.sh" ด้วยคำสั่ง ```./setupedgevpn.io.sh``` โดยใช้ parameter 4 ตัวคือ 
 
     > หากไม่สามารถ run script ได้ ให้ใช้คำสั่ง chmod +x setupedgevpn.io.sh
 
@@ -127,8 +127,8 @@ kubeadm token create --print-join-command
 ## **Setup Web Application**
 
 ### ติดตั้ง Software ที่จำเป็น
-* node version 14.15.4
-* XAMPP 
+* [node version 14.15.4](https://computingforgeeks.com/install-node-js-14-on-ubuntu-debian-linux/)
+* [XAMPP](https://www.9lessons.info/2015/12/amazon-ec2-setup-with-ubuntu-and-xampp.html)
 
 ### **ขั้นตอนการ Setup Web Application**
 1.  สร้าง Database ใน http://\<Master-Node-iP>/phpmyadmin
@@ -142,10 +142,7 @@ kubeadm token create --print-join-command
     role     = admin
     ```
     โดย pasword ได้มากจากการ encode text "12345678"
-2.  เข้าไปใช้คำสั่ง 
-    ```npm install``` 
-    ในโฟลเดอร์ Client และ Server 
-    และเข้าไปแก้ไขข้อมูลใน
+2.  เข้าไปใช้คำสั่ง ```npm install``` ในโฟลเดอร์ Client และ Server และเข้าไปแก้ไขข้อมูลใน
     ```client/src/Config/IpConfig.js``` 
     โดยเปลี่ยนแปลง SERVER_IP ให้เป็น IP ของ Master Node
     ``` 
