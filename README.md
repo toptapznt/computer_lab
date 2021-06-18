@@ -119,8 +119,8 @@ kubeadm token create --print-join-command
 
 ### **ขั้นตอนการ Setup Web Application**
 1.  สร้าง Database ใน http://\<Master-Node-iP>/phpmyadmin
-    ที่มีชื่อว่า computer_lab และ Collation เป็น utf8_general_ci
-    และทำการสร้าง User ใน table User เพื่อใช้ในการเข้าไปจัดการข้อมูลด้านใน
+    ที่มีชื่อว่า **computer_lab** และ Collation เป็น **utf8_general_ci**
+    และทำการสร้าง User ใน table users เพื่อใช้ในการเข้าไปจัดการข้อมูลด้านใน
     ```
     username = admin
     email    = admin@vl.edu
@@ -129,7 +129,7 @@ kubeadm token create --print-join-command
     role     = admin
     ```
     โดย pasword ได้มากจากการ encode text "12345678"
-2.  clone Code ของ Web Application ลงมาและเข้าไป ใช้คำสั่ง 
+2.  เข้าไปใช้คำสั่ง 
     ```npm install``` 
     ในโฟลเดอร์ Client และ Server 
     และเข้าไปแก้ไขข้อมูลใน
