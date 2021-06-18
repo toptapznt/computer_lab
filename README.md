@@ -2,12 +2,19 @@
 <br>
 
 ```bash
-#!/bin/bash
-
-#File: tree-md
-
-tree=$(tree -tf --noreport -I '*~' --charset ascii $1 |
-       sed -e 's/| \+/  /g' -e 's/[|`]-\+/ */g' -e 's:\(* \)\(\(.*/\)\([^/]\+\)\):\1[\4](\2):g')
-
-printf "# Project tree\n\n${tree}"
+.
+|__ demo
+|   |__ 63-2_CS402_14_ppr-r2_demo.mp4
+|__ doc
+|   |__ 63-2_CS402_14_ppr-r2.pdf
+|   |__ 63-2_CS402_14_ppr-r2_abstract_en.txt
+|   |__ 63-2_CS402_14_ppr-r2_abstract_th.txt
+|__ exam
+|   |__ 63-2_CS402_14_ppr-r2_exam.mp4
+|   |__ 63-2_CS402_14_ppr-r2_exam.png
+|__ src
+|   |__ client
+|   |__ script
+|   |__ server
+|__ README.md
 ```
