@@ -16,5 +16,5 @@
 │   ├─ 📁 client
 │   ├─ 📁 script
 │   └─ 📁 server
-└─ 📃 README.md
+└─ README.md
 ```
