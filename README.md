@@ -33,29 +33,34 @@
 การ Set up แบ่งเป็น 2 ส่วนคือ 
 * Setup Kubernetes Cluster 
 * Setup Web Application
+
 ---
 
 ## **Setup Kubernetes Cluster**
 
 1. เข้าไปที่ Directory script
 2. ใน XMPP Server Node ให้ run script ที่ชื่อว่า "xmppserver-setup.sh" ด้วยคำสั่ง ```./xmppserver-setup.sh```
-> หากไม่สามารถ run script ได้ ให้ใช้คำสั่ง chmod +x xmppserver-setup.sh
+
+ > หากไม่สามารถ run script ได้ ให้ใช้คำสั่ง chmod +x xmppserver-setup.sh
+
 4. เข้าไปตั้งค่า XMPP Server ที่ http://\<XMPP-Server-IPaddress>:9090
 โดยวิธีการตั้งค่าอยู่ในนี้ [Config Openfire](https://edgevpn.io/openfiredocker/) และทำการสร้าง User สำหรับ Master Node และ Worker Node ตามจำนวนที่ต้องการและ สร้าง Group ซึ่งตั้งค่า **Contact List** เป็น **All Users** โดยใน Group มีสมาชิกเพียง 1 Node คือ Master Node
 
 4. ในทุกๆ Node (ทั้ง Master และ Worker) ลง Software EdgeVPN.io โดยใช้ Script ที่ชื่อว่า "setupedgevpn.io.sh" ด้วยคำสั่ง ```./setupedgevpn.io.sh``` โดยใช้ parameter 4 ตัวคือ 
-> หากไม่สามารถ run script ได้ ให้ใช้คำสั่ง chmod +x setupedgevpn.io.sh
+
+ > หากไม่สามารถ run script ได้ ให้ใช้คำสั่ง chmod +x setupedgevpn.io.sh
+
     * Host Address ของ XMPP Server 
     * E-mail ของ User ใน XMPP Server
     * Password ของ User ใน XMPP Server
     * Virtual IP Address ที่ต้องการใช้ติดต่อกัน (เช่น 10.10.10.01)
    
-     <br>
-   
-     > ตัวอย่างเช่น ./setupedgevpn.io.sh 59.123.5.67 master@gmail.com master 10.10.10.10
+ > ตัวอย่างเช่น ./setupedgevpn.io.sh 59.123.5.67 master@gmail.com master 10.10.10.10
     
 5. ใน Master Node run Script ที่ชื่อว่า "shellformasternode.sh" ด้วยคำสั่ง ```./shellformasternode.sh``` และเข้าไปแก้ไขไฟล์
-> หากไม่สามารถ run script ได้ ให้ใช้คำสั่ง chmod +x shellformasternode.sh
+
+    > หากไม่สามารถ run script ได้ ให้ใช้คำสั่ง chmod +x shellformasternode.sh
+
     ```bash
     /etc/systemd/system/kubelet.service.d/10-kubeadm.conf 
     ```
@@ -86,7 +91,9 @@
     ```
 
 6. ในส่วนของ Worker Node run Script ที่ชื่อว่า "setupk8s.sh" ด้วยคำสั่ง ```./setupk8s.sh``` โดยใช้ parameter 1 ตัวคือ 
-> หากไม่สามารถ run script ได้ ให้ใช้คำสั่ง chmod +x setupk8s.sh
+   
+    > หากไม่สามารถ run script ได้ ให้ใช้คำสั่ง chmod +x setupk8s.sh
+   
     * HostName ที่ต้องการตั้งให้ Worker Node 
 
     และเข้าไปแก้ไขไฟล์
