@@ -132,9 +132,7 @@ kubeadm token create --print-join-command
     ```npm install``` 
     ในโฟลเดอร์ Client และ Server 
     และเข้าไปแก้ไขข้อมูลใน
-    ``` 
-    client/src/Config/IpConfig.js
-    ``` 
+    ```client/src/Config/IpConfig.js``` 
     โดยเปลี่ยนแปลง SERVER_IP ให้เป็น IP ของ Master Node
     ``` 
     module.exports = {
