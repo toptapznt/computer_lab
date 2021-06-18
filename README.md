@@ -14,7 +14,9 @@
 ├─ 📁 doc
 │   ├─ 63-2_CS402_14_ppr-r2.pdf
 │   ├─ 63-2_CS402_14_ppr-r2_abstract_en.txt
-│   └─ 63-2_CS402_14_ppr-r2_abstract_th.txt
+│   ├─ 63-2_CS402_14_ppr-r2_abstract_th.txt
+│   ├─ 63-2_CS402_14_ppr-r2_user_manual.pdf
+│   └─ 63-2_CS402_14_ppr-r2_setup.pdf
 ├─ 📁 exam
 │   ├─ 63-2_CS402_14_ppr-r2_exam.mp4
 │   └─ 63-2_CS402_14_ppr-r2_exam.png
