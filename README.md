@@ -26,6 +26,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ปัจจุบันการให้บริการห้องปฏิบัติการคอมพิวเตอร์ มักอาศัยการติดตั้งซอฟต์แวร์ที่อยู่เฉพาะเครื่องภายในห้องปฏิบัติการหนึ่งๆ เท่านั้น ซึ่งนอกจากจะเป็นการใช้ทรัพยากรของเครื่องมากเกินความจำเป็น ยังทำให้เกิดข้อจำกัดในการใช้งานซอฟต์แวร์ดังกล่าว เนื่องจากจำเป็นต้องเดินทางมาใช้งานที่ห้องปฏิบัติการซึ่งมีซอฟต์แวร์ติดตั้งไว้เท่านั้น หากเกิดปัญหาที่ทำให้ไม่สามารถเข้าไปใช้งานห้องปฏิบัติการดังกล่าวได้ ก็จะส่งผลให้ไม่สามารถใช้งานเครื่องคอมพิวเตอร์ภายในห้องปฏิบัติการเช่นกัน นอกจากนี้การจัดการห้องปฏิบัติการคอมพิวเตอร์ในปัจจุบัน การดำเนินงานมีความซ้ำซ้อนและใช้เวลาในการดำเนินการค่อนข้างนาน <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ผู้พัฒนาระบบจึงพัฒนาบริการด้วยเทคโนโลยีคอนเทนเนอร์และการจัดการคอนเทนเนอร์ขึ้น เพื่อทำให้การจัดการห้องปฏิบัติการคอมพิวเตอร์มีประสิทธิภาพมากขึ้น โดยระบบที่พัฒนาขึ้นอาศัยการสร้างคลัสเตอร์ระหว่างเครื่องควบคุมและเครื่องคอมพิวเตอร์ในห้องแลป หรือ ไคลแอนต์ (Client) โดยใช้ [Kubernetes](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/) และใช้ [ดอคเกอร์](https://www.docker.com/) อิมเมจ (Docker Image) เพื่อติดตั้งซอฟต์แวร์ที่ต้องใช้ในแต่ละเครื่องไคลแอนต์ ซึ่งอาจารย์ผู้สอนในแต่ละรายวิชาสามารถร้องขอการใช้งานห้องปฏิบัติการคอมพิวเตอร์ได้จากทุกที่ผ่านเว็บแอปพลิเคชัน อีกทั้งยังช่วยประหยัดทรัพยากรของเครื่องคอมพิวเตอร์ไคลแอนต์ได้อีกด้วย
 
+<br>
+
 # **Getting Start**
 
 ขั้นตอนเเรกทำการ clone project จาก Repository ด้วยคำสั่ง **git clone** ในทุกๆ เครื่อง ทั้ง Master node และ Worker node
@@ -34,7 +36,11 @@
 * Setup Kubernetes Cluster 
 * Setup Web Application
 
+<br>
+
 ---
+
+<br>
 
 ## **Setup Kubernetes Cluster**
 
@@ -43,7 +49,7 @@
 
    > หากไม่สามารถ run script ได้ ให้ใช้คำสั่ง chmod +x xmppserver-setup.sh
 
-4. เข้าไปตั้งค่า XMPP Server ที่ http://\<XMPP-Server-IPaddress>:9090
+3. เข้าไปตั้งค่า XMPP Server ที่ http://\<XMPP-Server-IPaddress>:9090
 โดยวิธีการตั้งค่าอยู่ในนี้ [Config Openfire](https://edgevpn.io/openfiredocker/) และทำการสร้าง User สำหรับ Master Node และ Worker Node ตามจำนวนที่ต้องการและ สร้าง Group ซึ่งตั้งค่า **Contact List** เป็น **All Users** โดยใน Group มีสมาชิกเพียง 1 Node คือ Master Node
 
 4. ในทุกๆ Node (ทั้ง Master และ Worker) ลง Software EdgeVPN.io โดย run Script ที่ชื่อว่า "setupedgevpn.io.sh" ด้วยคำสั่ง ```./setupedgevpn.io.sh``` โดยใช้ parameter 4 ตัวคือ 
@@ -64,7 +70,7 @@
     ```bash
     /etc/systemd/system/kubelet.service.d/10-kubeadm.conf 
     ```
-    โดยทำการเพิ่ม --node-ip ใน KUBELET_CONFIG_ARGS โดยใช้ Private IP Address ของเครื่องที่ใช้รัน Script ในขั้นตอนที่ 3
+    โดยทำการเพิ่ม --node-ip ใน KUBELET_CONFIG_ARGS โดยใช้ **Private IP Address** ของเครื่องที่ใช้รัน Script ในขั้นตอนที่ 3
     ```bash
     Environment="KUBELET_CONFIG_ARGS=--config=/var/lib/kubelet/config.yaml --node-ip=<Virtual-IP-Address>"
     ```
@@ -101,7 +107,7 @@
     ```bash
     /etc/systemd/system/kubelet.service.d/10-kubeadm.conf 
     ``` 
-    โดยทำการเพิ่ม --node-ip ใน KUBELET_CONFIG_ARGS โดยใช้ Private IP Address ของเครื่องที่ใช้รัน Script ในขั้นตอนที่ 3
+    โดยทำการเพิ่ม --node-ip ใน KUBELET_CONFIG_ARGS โดยใช้ **Private IP Address** ของเครื่องที่ใช้รัน Script ในขั้นตอนที่ 3
     ```bash
     Environment="KUBELET_CONFIG_ARGS=--config=/var/lib/kubelet/config.yaml --node-ip=<Virtual-IP-Address>"
     ```
@@ -122,7 +128,11 @@ kubectl get node
 kubeadm token create --print-join-command
 ``` 
 
+<br>
+
 ---
+
+<br>
 
 ## **Setup Web Application**
 
@@ -141,10 +151,11 @@ kubeadm token create --print-join-command
     name     = admin
     role     = admin
     ```
-    โดย pasword ได้มากจากการ encode text "12345678"
+    โดย password ได้มากจากการ encode text "12345678"
+    
 2.  เข้าไปใช้คำสั่ง ```npm install``` ในโฟลเดอร์ Client และ Server และเข้าไปแก้ไขข้อมูลใน
     ```client/src/Config/IpConfig.js``` 
-    โดยเปลี่ยนแปลง SERVER_IP ให้เป็น IP ของ Master Node
+    โดยเปลี่ยนแปลง **SERVER_IP** ให้เป็น IP ของ Master Node
     ``` 
     module.exports = {
           SERVER_IP: "<Master-Node-IP>"
