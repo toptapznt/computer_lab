@@ -116,6 +116,8 @@
    
     * HostName ที่ต้องการตั้งให้ Worker Node 
 
+    > ตัวอย่างเช่น ./setupk8s.sh worker11
+
     และเข้าไปแก้ไขไฟล์
 
     ```bash
