@@ -44,6 +44,8 @@
 * Setup Kubernetes Cluster 
 * Setup Web Application
 
+> ขั้นตอนการติดตั้งดังกล่าว รองรับเฉพาะระบบปฏิบัติการ **linux** เท่านั้น
+
 <br>
 
 ---
