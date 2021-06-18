@@ -20,9 +20,6 @@
 │   └─ 📁 server
 └─ README.md
 ```
-
-<br>
----
 <br>
 # **About The Project**
 
