@@ -121,7 +121,7 @@
     ```bash
     Environment="KUBELET_CONFIG_ARGS=--config=/var/lib/kubelet/config.yaml --node-ip=<Virtual-IP-Address>"
     ```
-    และใช้คำสั่งที่ใช้ในการ join cluster ที่ได้มาจาก Master Node ในขั้นตอนที่ 4 
+    และใช้คำสั่งที่ใช้ในการ join cluster ที่ได้มาจาก Master Node ในขั้นตอนที่ 4 ตัวอย่างเช่น
 
     ```bash   
     sudo kubeadm join 10.10.10.10:6443 --token yxigqc.vwmi19vbiedklgp7 --discovery-token-ca-cert-hash sha256:590b6698140222b480549e0c7f949ecb4db96c961f388a6377765efe8fde35f1
@@ -129,7 +129,7 @@
    
    <br>
    
-(Optional)
+**(Optional)**
    
 สามารถเช็คสถานะของเครื่องภายใน Cluster โดยใน Master Node ใช้คำสั่ง 
 ```bash
