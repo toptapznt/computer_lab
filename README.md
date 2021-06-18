@@ -1,7 +1,7 @@
 ### COMPUTER LAB AS A SERVICE USING CONTAINER AND CONTAINER ORCHESTRATION TECHNOLOGY 💻
 <br>
 
-## Directory Tree
+### Directory Tree
 
 ```bash
 .
