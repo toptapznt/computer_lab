@@ -48,7 +48,9 @@
     * E-mail ของ User ใน XMPP Server
     * Password ของ User ใน XMPP Server
     * Virtual IP Address ที่ต้องการใช้ติดต่อกัน (เช่น 10.10.10.01)
-     
+   
+     <br>
+   
      > ตัวอย่างเช่น ./setupedgevpn.io.sh 59.123.5.67 master@gmail.com master 10.10.10.10
     
 5. ใน Master Node run Script ที่ชื่อว่า "shellformasternode.sh" และเข้าไปแก้ไขไฟล์
