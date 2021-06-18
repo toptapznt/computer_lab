@@ -1,1 +1,8 @@
 ### COMPUTER LAB AS A SERVICE USING CONTAINER AND CONTAINER ORCHESTRATION TECHNOLOGY 💻
+<br>
+.
+|__ demo
+|__ doc
+|__ exam
+|__ src
+|__ README.md
