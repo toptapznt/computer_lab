@@ -24,35 +24,34 @@
 
 # **About The Project**
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ปัจจุบันการให้บริการห้องปฏิบัติการคอมพิวเตอร์ มักอาศัยการติดตั้งซอฟต์แวร์ที่อยู่เฉพาะเครื่องภายในห้องปฏิบัติการหนึ่งๆ เท่านั้น ซึ่งนอกจากจะเป็นการใช้ทรัพยากรของเครื่องมากเกินความจำเป็น ยังทำให้เกิดข้อจำกัดในการใช้งานซอฟต์แวร์ดังกล่าว เนื่องจากจำเป็นต้องเดินทางมาใช้งานที่ห้องปฏิบัติการซึ่งมีซอฟต์แวร์ติดตั้งไว้เท่านั้น หากเกิดปัญหาที่ทำให้ไม่สามารถเข้าไปใช้งานห้องปฏิบัติการดังกล่าวได้ ก็จะส่งผลให้ไม่สามารถใช้งานเครื่องคอมพิวเตอร์ภายในห้องปฏิบัติการเช่นกัน นอกจากนี้การจัดการห้องปฏิบัติการคอมพิวเตอร์ในปัจจุบัน การดำเนินงานมีความซ้ำซ้อนและใช้เวลาในการดำเนินการค่อนข้างนาน <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ผู้พัฒนาระบบจึงพัฒนาบริการด้วยเทคโนโลยีคอนเทนเนอร์และการจัดการคอนเทนเนอร์ขึ้น เพื่อทำให้การจัดการห้องปฏิบัติการคอมพิวเตอร์มีประสิทธิภาพมากขึ้น โดยระบบที่พัฒนาขึ้นอาศัยการสร้างคลัสเตอร์ระหว่างเครื่องควบคุมและเครื่องคอมพิวเตอร์ในห้องแลป หรือ ไคลแอนต์ (Client) โดยใช้ [Kubernetes](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/) และใช้ [ดอคเกอร์](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/) อิมเมจ (Docker Image) เพื่อติดตั้งซอฟต์แวร์ที่ต้องใช้ในแต่ละเครื่องไคลแอนต์ ซึ่งอาจารย์ผู้สอนในแต่ละรายวิชาสามารถร้องขอการใช้งานห้องปฏิบัติการคอมพิวเตอร์ได้จากทุกที่ผ่านเว็บแอปพลิเคชัน อีกทั้งยังช่วยประหยัดทรัพยากรของเครื่องคอมพิวเตอร์ไคลแอนต์ได้อีกด้วย
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ผู้พัฒนาระบบจึงพัฒนาบริการด้วยเทคโนโลยีคอนเทนเนอร์และการจัดการคอนเทนเนอร์ขึ้น เพื่อทำให้การจัดการห้องปฏิบัติการคอมพิวเตอร์มีประสิทธิภาพมากขึ้น โดยระบบที่พัฒนาขึ้นอาศัยการสร้างคลัสเตอร์ระหว่างเครื่องควบคุมและเครื่องคอมพิวเตอร์ในห้องแลป หรือ ไคลแอนต์ (Client) โดยใช้ [Kubernetes](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/) และใช้ [ดอคเกอร์](https://www.docker.com/) อิมเมจ (Docker Image) เพื่อติดตั้งซอฟต์แวร์ที่ต้องใช้ในแต่ละเครื่องไคลแอนต์ ซึ่งอาจารย์ผู้สอนในแต่ละรายวิชาสามารถร้องขอการใช้งานห้องปฏิบัติการคอมพิวเตอร์ได้จากทุกที่ผ่านเว็บแอปพลิเคชัน อีกทั้งยังช่วยประหยัดทรัพยากรของเครื่องคอมพิวเตอร์ไคลแอนต์ได้อีกด้วย
 
 # **Getting Start**
 
-จะแบ่งเป็น 2 ส่วนคือ 
+ทำการ clone project จาก Repository ด้วยคำสั่ง **git clone** ในทุกๆ เครื่อง ทั้ง Master node และ Worker node
+
+การ Set up แบ่งเป็น 2 ส่วนคือ 
 * Setup Kubernetes Cluster 
 * Setup Web Application
 ---
 
 ## **Setup Kubernetes Cluster**
 
-1. ใน XMPP Server Node ให้ run script ที่ชื่อว่า "xmppserver-setup.sh"
+1. เข้าไปที่ Directory script
+2. ใน XMPP Server Node ให้ run script ที่ชื่อว่า "xmppserver-setup.sh"
 
-2. เข้าไปตั้งค่า XMPP Server ที่ http://\<XMPP-Server-IPaddress>:9090
+3. เข้าไปตั้งค่า XMPP Server ที่ http://<XMPP-Server-IPaddress>:9090
 โดยวิธีการตั้งค่าอยู่ในนี้ [Config Openfire](https://edgevpn.io/openfiredocker/) และทำการสร้าง User สำหรับ Master Node และ Worker Node ตามจำนวนที่ต้องการและ สร้าง Group ซึ่งตั้งค่า **Contact List** เป็น **All Users** โดยใน Group มีสมาชิกเพียง 1 Node คือ Master Node
 
-3. ในทุกๆ Node (ทั้ง Master และ Worker) ลง Software EdgeVPN.io โดยใช้ Script ที่ชื่อว่า "setupedgevpn.io.sh" โดยใช้ parameter 4 ตัวคือ 
+4. ในทุกๆ Node (ทั้ง Master และ Worker) ลง Software EdgeVPN.io โดยใช้ Script ที่ชื่อว่า "setupedgevpn.io.sh" โดยใช้ parameter 4 ตัวคือ 
     * Host Address ของ XMPP Server 
     * E-mail ของ User ใน XMPP Server
     * Password ของ User ใน XMPP Server
     * Virtual IP Address ที่ต้องการใช้ติดต่อกัน (เช่น 10.10.10.01)
      
-     <br>
-     
      > ตัวอย่างเช่น ./setupedgevpn.io.sh 59.123.5.67 master@gmail.com master 10.10.10.10
-  
-    <br> 
     
-4. ใน Master Node ใช้ Script ที่ชื่อว่า "shellformasternode.sh" และเข้าไปแก้ไขไฟล์
+5. ใน Master Node run Script ที่ชื่อว่า "shellformasternode.sh" และเข้าไปแก้ไขไฟล์
     ```bash
     /etc/systemd/system/kubelet.service.d/10-kubeadm.conf 
     ```
@@ -82,7 +81,7 @@
     sudo kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
     ```
 
-5. ในส่วนของ Worker Node ใช้ Script ที่ชื่อว่า "setupk8s.sh" โดยใช้ parameter 1 ตัวคือ 
+6. ในส่วนของ Worker Node run Script ที่ชื่อว่า "setupk8s.sh" โดยใช้ parameter 1 ตัวคือ 
     * HostName ที่ต้องการตั้งให้ Worker Node 
 
     และเข้าไปแก้ไขไฟล์
