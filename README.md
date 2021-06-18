@@ -48,7 +48,7 @@
 
 4. ในทุกๆ Node (ทั้ง Master และ Worker) ลง Software EdgeVPN.io โดยใช้ Script ที่ชื่อว่า "setupedgevpn.io.sh" ด้วยคำสั่ง ```./setupedgevpn.io.sh``` โดยใช้ parameter 4 ตัวคือ 
 
- > หากไม่สามารถ run script ได้ ให้ใช้คำสั่ง chmod +x setupedgevpn.io.sh
+    > หากไม่สามารถ run script ได้ ให้ใช้คำสั่ง chmod +x setupedgevpn.io.sh
 
     * Host Address ของ XMPP Server 
     * E-mail ของ User ใน XMPP Server
