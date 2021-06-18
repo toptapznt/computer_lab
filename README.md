@@ -40,7 +40,7 @@
 1. เข้าไปที่ Directory script
 2. ใน XMPP Server Node ให้ run script ที่ชื่อว่า "xmppserver-setup.sh"
 
-3. เข้าไปตั้งค่า XMPP Server ที่ http:\//<XMPP-Server-IPaddress>:9090
+3. เข้าไปตั้งค่า XMPP Server ที่ http://\<XMPP-Server-IPaddress>:9090
 โดยวิธีการตั้งค่าอยู่ในนี้ [Config Openfire](https://edgevpn.io/openfiredocker/) และทำการสร้าง User สำหรับ Master Node และ Worker Node ตามจำนวนที่ต้องการและ สร้าง Group ซึ่งตั้งค่า **Contact List** เป็น **All Users** โดยใน Group มีสมาชิกเพียง 1 Node คือ Master Node
 
 4. ในทุกๆ Node (ทั้ง Master และ Worker) ลง Software EdgeVPN.io โดยใช้ Script ที่ชื่อว่า "setupedgevpn.io.sh" โดยใช้ parameter 4 ตัวคือ 
@@ -118,7 +118,7 @@ kubeadm token create --print-join-command
 * XAMPP 
 
 ### **ขั้นตอนการ Setup Web Application**
-1.  สร้าง Database ใน http:\//<Master-Node-iP>/phpmyadmin
+1.  สร้าง Database ใน http://\<Master-Node-iP>/phpmyadmin
     ที่มีชื่อว่า computer_lab และ Collation เป็น utf8_general_ci
     และทำการสร้าง User ใน table User เพื่อใช้ในการเข้าไปจัดการข้อมูลด้านใน
     ```
